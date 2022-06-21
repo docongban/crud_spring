@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Đỗ Công Ban</title>
+</head>
+
+<body>
+	<h1>Insert</h1>
+	<form th:action="@{/insert}" method="post" th:if="${product==null}">
+		<h3 th:text="${error}"></h3>
+		ID:
+		<input type="text" name="id" required/><br>
+		Tên:
+		<input type="text" name="name" required/><br>
+		Giá:
+		<input type="number" name="price" required/><br>
+		Danh mục:
+		<select name="categoryId" required>
+			<option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.title}"></option>
+		</select><br>
+		Mô tả:
+		<input type="text" name="description" required/><br>
+
+		<a th:href="@{/view}">Return</a>
+		<button>Thêm</button>
+	</form>
+	<form th:action="@{/update}" method="post" th:object="${product}" th:if="${product!=null}">
+		ID:
+		<input type="text" th:field="*{id}" name="id" required readonly/><br>
+		Tên:
+		<input type="text" th:field="*{name}" name="name" required/><br>
+		Giá:
+		<input type="number" th:field="*{price}" name="price" required/><br>
+		Danh mục:
+		<select name="categoryId" required>
+			<option th:each="category: ${categories}" th:value="${category.id}" th:field="*{categoryId}" th:text="${category.title}"></option>
+		</select><br>
+		Mô tả:
+		<input type="text" name="description" th:field="*{description}" required/><br>
+
+		<a th:href="@{/view}">Return</a>
+		<button>Cập nhật</button>
+	</form>
+</body>
+
+</html>

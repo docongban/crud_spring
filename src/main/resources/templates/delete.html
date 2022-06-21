@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Đỗ Công Ban</title>
+</head>
+
+<body>
+	<h1>Delete</h1>
+	<h2>ID: <span th:text="${product.id}"></span></h2>
+	<h2>Tên: <span th:text="${product.name}"></span></h2>
+	<h2>Giá: <span th:text="${product.price}"></span></h2>
+	<h2>Danh mục: <span th:text="${categoryName}"></span></h2>
+	<h2>Mô tả: <span th:text="${product.description}"></span></h2>
+	
+	<a th:href="@{/view}">Return</a>
+	<a th:href="@{/deletePro/{id}(id=${product.id})}">Xóa</a>
+</body>
+
+</html>
