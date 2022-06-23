@@ -8,6 +8,8 @@
 
 <body>
 	<h1>Insert</h1>
+	<!-- nếu chưa có model đẩy lên từ addtribute thì là thêm mới -->
+	<!-- map đúng th:action trùng với hành vi tương ứng và chú ý method -->
 	<form th:action="@{/insert}" method="post" th:if="${product==null}">
 		<h3 th:text="${error}"></h3>
 		ID:
@@ -26,8 +28,10 @@
 		<a th:href="@{/view}">Return</a>
 		<button>Thêm</button>
 	</form>
+	<!-- nếu có model đẩy lên từ addtribute thì là thêm mới và đặt thêm th:object bằng chính model đẩy lên-->
 	<form th:action="@{/update}" method="post" th:object="${product}" th:if="${product!=null}">
 		ID:
+		<!-- th:field để tự đồng điền vào input và thẻ select -->
 		<input type="text" th:field="*{id}" name="id" required readonly/><br>
 		Tên:
 		<input type="text" th:field="*{name}" name="name" required/><br>

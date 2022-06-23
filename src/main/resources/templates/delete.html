@@ -15,6 +15,7 @@
 	<h2>Mô tả: <span th:text="${product.description}"></span></h2>
 	
 	<a th:href="@{/view}">Return</a>
+	<!-- map đường dẫn để thực hiện xóa sản phẩm (theo id) -->
 	<a th:href="@{/deletePro/{id}(id=${product.id})}">Xóa</a>
 </body>
 

@@ -8,12 +8,18 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+//là 1 đối tượng
 @Entity
+
+// tự genernate ra bảng category trong db
 @Table(name = "category")
 @Data
 public class Category {
 
+	
+	//là ID khóa chính
 	@Id
+	//tự tăng
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String title;

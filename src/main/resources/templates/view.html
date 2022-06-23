@@ -9,6 +9,7 @@
 <body>
 	<h1>Product</h1>
 	<table>
+		<!--map đường dẫn dẫn đến trang insert-->
 		<a th:href="@{/insert}">Thêm</a>
 		<tr>
 			<th>ID</th>
@@ -19,14 +20,18 @@
 			<th colspan="3">Action</th>
 		</tr>
 		<!-- i: ${#numbers.sequence(0, products.size() - 1)} -->
+		<!--Lặp tất cả sản phẩm đã đẩy từ addtribute lên-->
 		<tr th:each="product :${products}">
 			<td th:text="${product.id}"></td>
 			<td th:text="${product.name}"></td>
 			<td th:text="${product.price}"></td>
 			<td th:text="${product.categoryId}"></td>
 			<td th:text="${product.description}"></td>
+			<!-- map đường dẫn để thực hiện update status -->
 			<td><a th:href="@{/updateStatus/{id}(id=${product.id})}">Trạng thái</a></td>
+			<!-- map đường dẫn để thực hiện lấy chi tiết ra sản phẩm để update (lấy theo id)-->
 			<td><a th:href="@{/updateProduct/{id}(id=${product.id})}">Sửa</a></td>
+			<!-- map đường dẫn để thực hiện lấy chi tiết ra sản phẩm để xóa (lấy theo id)-->
 			<td><a th:href="@{/deleteProduct/{id}(id=${product.id})}">Xóa</a></td>
 		</tr>
 	</table>
